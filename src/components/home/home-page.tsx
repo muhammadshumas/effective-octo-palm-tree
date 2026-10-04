@@ -51,6 +51,23 @@ export default function HomePage() {
           duration: 0.9,
           delay: 0.35,
         });
+        // Reveal content blocks independently so long sections never wait for
+        // their entire height to enter the viewport. Keep transforms off slides.
+        gsap.utils.toArray<HTMLElement>("[data-scroll-reveal]").forEach((element) => {
+          gsap.from(element, {
+            opacity: 0,
+            // Keep scroll destinations stationary while their contents fade in.
+            y: element.dataset.scrollReveal === "fade" ? 0 : 24,
+            duration: 0.75,
+            ease: "power2.out",
+            clearProps: "opacity,transform",
+            scrollTrigger: {
+              trigger: element,
+              start: "top 88%",
+              once: true,
+            },
+          });
+        });
         gsap.fromTo(
           ".reveal-word",
           { opacity: 0.72 },
@@ -82,13 +99,13 @@ export default function HomePage() {
   return (
     <main ref={root} className="overflow-x-hidden w-full max-w-full">
       <HomeHeader quantity={quantity} onOpenCart={openCart} />
-      <HeroSection onAddToCart={add} />
+      <HeroSection />
       <StoreBenefits onOpenPolicy={setPanel} />
-      <ExperienceSection onAddToCart={add} />
+      <ExperienceSection />
       <SetupSection />
+      <ScenesSection />
       <StoriesSection />
 
-      <ScenesSection />
       <ManifestoSection />
 
       <ShopSection onAddToCart={add} />

@@ -1,4 +1,7 @@
-import { containerClasses } from "./layout-classes";
+"use client";
+
+import { useId, useState } from "react";
+import { containerClasses, sectionClasses, sectionContentGapClasses } from "./layout-classes";
 import Heading from "@/components/typography/heading";
 import { PlusIcon } from "@phosphor-icons/react/dist/csr/Plus";
 
@@ -28,25 +31,51 @@ const faqs = [
     "This is a demo with a provisional $79 USD price. No payment is collected and no order is placed.",
   ],
 ];
+
+function FaqItem({ question, answer }: { question: string; answer: string }) {
+  const [open, setOpen] = useState(false);
+  const id = useId();
+
+  return (
+    <div className="border-b border-line first:border-t">
+      <button
+        id={`${id}-question`}
+        type="button"
+        aria-expanded={open}
+        aria-controls={`${id}-answer`}
+        onClick={() => setOpen((current) => !current)}
+        className="flex w-full items-start justify-between gap-4 border-0 bg-transparent py-6 text-left text-base font-normal hover:text-highlight"
+      >
+        {question}
+        <span aria-hidden="true" className={`shrink-0 text-[1.1875rem] leading-none text-[#b9a6d7] transition-transform duration-300 ease-in-out motion-reduce:transition-none ${open ? "rotate-45" : "rotate-0"}`}><PlusIcon size="1em" /></span>
+      </button>
+      <div
+        id={`${id}-answer`}
+        aria-labelledby={`${id}-question`}
+        inert={!open}
+        className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out motion-reduce:transition-none ${open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <p className="m-0 pb-4 text-base leading-normal text-muted">{answer}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function FaqSection() {
   return (
-    <section id="faq" className={`scroll-mt-24 ${containerClasses} pt-0 min-[641px]:pt-24 lg:pt-0 grid grid-cols-1 pb-16 min-[641px]:pb-24 lg:pb-32 gap-8 min-[641px]:gap-12 lg:gap-24`}>
-      <div>
+    <section id="faq" className={`scroll-mt-24 ${containerClasses} ${sectionClasses} ${sectionContentGapClasses} grid max-w-200 grid-cols-1`}>
+      <div data-scroll-reveal className="text-center">
         <Heading as="h2" variant="section">
           Good questions.
           <br />
           <span className="text-highlight">Simple answers.</span>
         </Heading>
       </div>
-      <div>
+      <div data-scroll-reveal>
         {faqs.map(([q, a]) => (
-          <details key={q} className="group border-b border-line first:border-t">
-            <summary className="flex cursor-pointer list-none justify-between gap-4 py-6 text-base [&::-webkit-details-marker]:hidden">
-              {q}
-              <span aria-hidden="true" className="text-[1.1875rem] leading-none text-[#b9a6d7] group-open:rotate-45"><PlusIcon size="1em" /></span>
-            </summary>
-            <p className="mt-0 max-w-110 pb-4 text-base leading-normal text-muted">{a}</p>
-          </details>
+          <FaqItem key={q} question={q} answer={a} />
         ))}
       </div>
     </section>

@@ -1,7 +1,7 @@
 "use client";
 
-import Button from "./button";
-import { containerClasses, sectionClasses } from "./layout-classes";
+import { ButtonLink } from "./button";
+import { containerClasses, sectionClasses, sectionRowGapClasses } from "./layout-classes";
 
 import Heading from "@/components/typography/heading";
 
@@ -16,30 +16,26 @@ const features = [
 
 const benefitClasses = "flex items-center text-sm text-[#c6b4ec] mt-6 mb-0 w-fit underline underline-offset-[5px] leading-normal md:mt-8 hover:text-foreground focus-visible:[outline:2px_solid_#c6b4ec] focus-visible:outline-offset-4 py-2 px-0 mx-0 gap-4";
 
-export default function ExperienceSection({
-  onAddToCart,
-}: {
-  onAddToCart: () => void;
-}) {
+export default function ExperienceSection() {
   return (
     <section id="experience" className={`${containerClasses} ${sectionClasses}`} aria-labelledby="experience-title">
 
-      <div className="grid gap-16 md:gap-24">
+      <div className={`grid ${sectionRowGapClasses}`}>
         {features.map((feature) => (
-          <article className="group grid grid-cols-1 items-center gap-6 md:grid-cols-2 md:gap-12 lg:gap-24" key={feature.image}>
+          <article data-scroll-reveal className="group grid grid-cols-1 items-center gap-6 md:grid-cols-2 md:gap-12 lg:gap-24" key={feature.image}>
             <div className="col-start-1 row-start-2 max-w-none p-0 md:col-auto md:row-auto md:max-w-105 md:py-6 md:group-even:col-start-2 md:group-even:row-start-1">
               <Heading as="h3" variant="experience">{feature.title[0]}<br />{feature.title[1]}</Heading>
               <p className="font-serif text-base leading-[1.75] text-muted max-w-[36ch] m-0">{feature.description}</p>
               {feature.image === product.images.galaxy && (
-                <a className={benefitClasses} href="#scenes">Explore all 16 scenes <span aria-hidden="true">↗</span></a>
+                <a className={benefitClasses} href="#scenes">Explore all 16 scenes</a>
               )}
               {feature.image === product.images.sound && (
-                <a className={benefitClasses} href="#setup">See how to get started <span aria-hidden="true">↗</span></a>
+                <a className={benefitClasses} href="#setup">See how to get started</a>
               )}
               {feature.image === product.images.hero && (
-                <Button className="mt-8" onClick={onAddToCart}>
+                <ButtonLink className="mt-8 min-w-[12.1875rem]" href="#shop-add-to-cart" scrollAlign="end">
                   Order Now
-                </Button>
+                </ButtonLink>
               )}
             </div>
             <div className="relative col-start-1 row-start-1 aspect-[1.2] overflow-hidden bg-[#151422] [clip-path:polygon(0_0,88%_0,100%_12%,100%_100%,12%_100%,0_88%)] md:col-auto md:row-auto md:aspect-[1.1] md:group-even:col-start-1 md:group-even:row-start-1">
@@ -51,4 +47,3 @@ export default function ExperienceSection({
     </section>
   );
 }
-

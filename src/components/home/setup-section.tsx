@@ -1,11 +1,11 @@
-import { containerClasses, sectionClasses } from "./layout-classes";
+import { containerClasses, sectionClasses, sectionContentGapClasses } from "./layout-classes";
 import Heading from "@/components/typography/heading";
 import Image from "next/image";
 
 export default function SetupSection() {
   return (
-    <section id="setup" className={`scroll-mt-24 ${containerClasses} ${sectionClasses} grid grid-cols-1 gap-8 min-[641px]:gap-12`} aria-labelledby="setup-heading">
-      <div className="self-start text-center [&_>_p]:mt-4 [&_>_p]:mb-0 [&_>_p]:max-w-155 [&_>_p]:text-muted [&_>_p]:text-base [&_>_p]:leading-[1.6] [&_>_p]:mx-auto">
+    <section id="setup" className={`scroll-mt-24 ${containerClasses} ${sectionClasses} ${sectionContentGapClasses} grid grid-cols-1`} aria-labelledby="setup-heading">
+      <div data-scroll-reveal className="self-start text-center [&_>_p]:mt-4 [&_>_p]:mb-0 [&_>_p]:max-w-155 [&_>_p]:text-muted [&_>_p]:text-base [&_>_p]:leading-[1.6] [&_>_p]:mx-auto">
         <Heading as="h2" variant="section" id="setup-heading">How it works</Heading>
         <p>Three easy steps and you are a thousand miles away suddenly</p>
       </div>
@@ -30,7 +30,7 @@ export default function SetupSection() {
             "A cozy listening room with a projector beside the seating area",
           ],
         ].map(([title, text, image, alt], i) => (
-          <article key={title}>
+          <article data-scroll-reveal key={title}>
             <div className="relative w-full aspect-[16_/_10] overflow-hidden rounded-xl mb-6 bg-[#14121f]">
               <Image src={image} alt={alt} fill sizes="(max-width: 1023px) 100vw, 33vw" className="object-cover" />
             </div>

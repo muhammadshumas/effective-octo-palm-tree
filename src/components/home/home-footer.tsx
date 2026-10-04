@@ -24,7 +24,7 @@ export default function HomeFooter({
       </div>
       <div className="pt-4 pb-8 flex justify-between border-t border-t-line text-[0.6875rem] text-muted flex-col flex-wrap leading-normal min-[641px]:flex-row min-[641px]:flex-nowrap px-0 gap-2 min-[641px]:gap-0">
         <span>© {new Date().getFullYear()} Star Galaxy</span>
-        <span>Concept storefront · Generated imagery · Sample stories</span>
+
       </div>
     </footer>
   );

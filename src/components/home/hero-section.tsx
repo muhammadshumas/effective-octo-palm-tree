@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "./button";
+import { ButtonLink } from "./button";
 import { containerClasses } from "./layout-classes";
 
 import Heading from "@/components/typography/heading";
@@ -13,14 +13,10 @@ import Image from "next/image";
 
 const featureClasses = "hero-feature flex flex-row items-center text-left absolute w-36 rounded-lg bg-[#13121dee] shadow-[0_8px_24px_#00000018] lg:w-44 [&_>_svg]:text-[#b4a4cd] [&_>_svg]:shrink-0 [&_>_svg]:w-4 [&_>_svg]:h-4 min-[641px]:[&_>_svg]:w-5 min-[641px]:[&_>_svg]:h-5 [&:nth-child(1)]:left-0 [&:nth-child(1)]:top-[8%] lg:[&:nth-child(1)]:top-[16%] [&:nth-child(2)]:right-0 [&:nth-child(2)]:top-[72%] min-[641px]:[&:nth-child(2)]:top-[64%] lg:[&:nth-child(2)]:top-[58%] [&:nth-child(3)]:left-4 [&:nth-child(3)]:bottom-8 min-[641px]:[&:nth-child(3)]:left-0 min-[641px]:[&:nth-child(3)]:bottom-0 lg:[&:nth-child(3)]:left-8 lg:[&:nth-child(3)]:bottom-16 p-2 gap-2 border-[#c6b3f018] border lg:p-4";
 
-export default function HeroSection({
-  onAddToCart,
-}: {
-  onAddToCart: () => void;
-}) {
+export default function HeroSection() {
   return (
     <section className="text-left bg-[radial-gradient(ellipse_at_54%_44%,#30204735,transparent_62%)]" aria-labelledby="hero-title">
-      <div className={`${containerClasses} grid grid-cols-1 items-center min-h-auto pt-8 pb-6 min-[641px]:grid-cols-[minmax(0,_1.35fr)_minmax(0,_1.15fr)] min-[641px]:pb-8 lg:gap-x-12 lg:min-h-147.5 lg:pt-6 gap-0 min-[641px]:gap-4`}>
+      <div className={`${containerClasses} grid grid-cols-1 items-center min-h-auto py-8 min-[641px]:grid-cols-[minmax(0,_1.35fr)_minmax(0,_1.15fr)] lg:gap-x-12 lg:min-h-147.5 gap-0 min-[641px]:gap-4`}>
         <div className="hero-copy relative z-2 col-start-1 row-auto self-auto min-[641px]:row-start-1 min-[641px]:self-center">
           <Heading as="h1" variant="hero" id="hero-title" className="max-w-6xl">
             Turn Your Room Into a <span className="text-highlight">Calming Escape</span>
@@ -29,10 +25,10 @@ export default function HeroSection({
            Star Galaxy Night Light is a compact projector that fills your room with 16 celestial scenes
             and soothing sound, for a calmer evening.
           </p>
-          <div className="mt-[27.6px] flex flex-row flex-wrap items-center justify-start gap-4 min-[641px]:mt-[36.8px] min-[641px]:flex-nowrap min-[641px]:gap-6 [&_svg]:shrink-0">
-            <Button onClick={onAddToCart}>
+          <div className="mt-8 flex flex-row flex-wrap items-center justify-start gap-4 min-[641px]:mt-10 min-[641px]:gap-6 [&_svg]:shrink-0">
+            <ButtonLink className="min-w-[12.1875rem]" href="#shop-add-to-cart" scrollAlign="end">
               Order Now
-            </Button>
+            </ButtonLink>
             <a className="inline-flex items-center text-[calc(0.6875rem_+_1px)] text-muted font-serif leading-normal min-[641px]:text-[calc(1rem_+_1px)] hover:text-white py-2 px-0 gap-2 min-[641px]:gap-6" href="#scenes">
               Explore the scenes{" "}
               <ArrowDownIcon aria-hidden="true" size={20} weight="bold" />

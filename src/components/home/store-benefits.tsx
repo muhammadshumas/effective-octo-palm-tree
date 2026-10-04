@@ -16,7 +16,7 @@ export default function StoreBenefits({
 }) {
   return (
     <section className={`${containerClasses}`} aria-label="Shopping information">
-      <ul className="grid grid-cols-2 gap-y-6 gap-x-4 list-none border-t border-t-line border-b border-b-line lg:grid-cols-4 [&_li]:min-w-0 m-0 py-6 px-0 min-[480px]:py-8 min-[480px]:gap-8 lg:gap-6">
+      <ul data-scroll-reveal className="grid grid-cols-2 gap-y-6 gap-x-4 list-none border-t border-t-line border-b border-b-line lg:grid-cols-4 [&_li]:min-w-0 m-0 py-6 px-0 min-[480px]:py-8 min-[480px]:gap-8 lg:gap-6">
         <li>
           <button type="button" className={benefitClasses} onClick={() => onOpenPolicy("Shipping")}>
             <span className="grid place-items-center w-12 h-12 shrink-0 rounded-full bg-[#c6b3f00d] text-highlight min-[480px]:w-14 min-[480px]:h-14 border-[#c6b3f020] border"><TruckIcon size={26} weight="duotone" aria-hidden="true" /></span>

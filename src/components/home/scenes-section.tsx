@@ -6,11 +6,7 @@ import { useEffect, useEffectEvent, useLayoutEffect, useRef, useState } from "re
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, Pause, Play } from "@phosphor-icons/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import { sceneArtworks } from "@/lib/product";
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 type Transition = { index: number; slot: number; direction: -1 | 1; automatic: boolean };
 const initialIndex = 4;
@@ -68,17 +64,6 @@ export default function ScenesSection() {
     // The decoder cache is stable; preload only when the settled scene changes.
   }, [active.index]);
 
-  useGSAP(() => {
-    const mm = gsap.matchMedia();
-    mm.add("(prefers-reduced-motion: no-preference)", () => {
-      gsap.from(".scenes-heading > *", {
-        y: 16, opacity: 0, stagger: 0.12, duration: 0.7,
-        scrollTrigger: { trigger: root.current, start: "top 80%", once: true },
-      });
-    });
-    return () => mm.revert();
-  }, { scope: root });
-
   async function navigate(direction: -1 | 1, automatic = false) {
     if (locked.current) return;
     locked.current = true;
@@ -134,7 +119,7 @@ export default function ScenesSection() {
 
   return (
     <section ref={root} id="scenes" className="scroll-mt-24" aria-label="Celestial scenes">
-      <div ref={stage} className="relative isolate w-full h-105 overflow-hidden bg-[#0e0e18] md:h-[clamp(480px,_65vh,_760px)] lg:h-[clamp(640px,_85svh,_1100px)] focus-visible:[outline:2px_solid_#e2d1ff] focus-visible:-outline-offset-5" role="region" aria-roledescription="carousel" aria-label="Explore the sixteen scenes" aria-busy={busy} tabIndex={0}
+      <div data-scroll-reveal ref={stage} className="relative isolate w-full h-105 overflow-hidden bg-[#0e0e18] md:h-[clamp(480px,_65vh,_760px)] lg:h-[clamp(640px,_85svh,_1100px)] focus-visible:[outline:2px_solid_#e2d1ff] focus-visible:-outline-offset-5" role="region" aria-roledescription="carousel" aria-label="Explore the sixteen scenes" aria-busy={busy} tabIndex={0}
         onKeyDown={(event) => {
         if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
         if (event.key === "ArrowLeft" || event.key === "ArrowRight") {

@@ -12,6 +12,18 @@
 
 @theme {
   --animate-panel-enter: panel-enter 240ms ease both;
+  --animate-dialog-backdrop-enter: dialog-backdrop-enter 320ms ease both;
+  --animate-dialog-backdrop-exit: dialog-backdrop-exit 240ms ease both;
+
+  @keyframes dialog-backdrop-enter {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes dialog-backdrop-exit {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
 
   @keyframes panel-enter {
     from { opacity: 0; transform: translateY(4px); }

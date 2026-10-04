@@ -7,7 +7,6 @@ import Heading from "@/components/typography/heading";
 
 import { CheckIcon } from "@phosphor-icons/react/dist/csr/Check";
 import Photo from "./photo";
-import Arrow from "./arrow";
 import { product, money } from "@/lib/product";
 
 export default function ShopSection({
@@ -17,15 +16,15 @@ export default function ShopSection({
 }) {
   return (
     <section id="shop" className={`${containerClasses} ${sectionClasses} grid grid-cols-1 items-center min-[641px]:grid-cols-[1fr_1fr] gap-8 lg:gap-24`}>
-      <div className="relative h-100 rounded-[9px] overflow-hidden min-[641px]:h-142.5 lg:h-165 group">
+      <div data-scroll-reveal className="relative h-100 rounded-[9px] overflow-hidden min-[641px]:h-142.5 lg:h-165 group">
         <Photo
           src={product.images.studio}
           alt="Illustrative white spherical projector with black lens and adjustable cradle"
           className="transition-transform duration-700 group-hover:scale-105"
         />
       </div>
-      <div>
-        <Heading as="h2" variant="section" className="mb-6">
+      <div data-scroll-reveal="fade">
+        <Heading as="h2" variant="section" className="mb-6 text-[2.125rem]! min-[641px]:text-[clamp(2.01875rem,_3.91vw,_3.4rem)]!">
           {product.name}
         </Heading>
         <div className="flex items-baseline gap-3 text-[1.9375rem] tracking-[-0.04em] leading-normal">
@@ -43,11 +42,10 @@ export default function ShopSection({
             </li>
           ))}
         </ul>
-        <Button fullWidth onClick={onAddToCart} className="justify-center! ">
+        <Button id="shop-add-to-cart" fullWidth onClick={onAddToCart} className="justify-center! scroll-mb-8">
           Add to cart 
         </Button>
       </div>
     </section>
   );
 }
-
