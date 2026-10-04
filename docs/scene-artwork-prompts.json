@@ -1,0 +1,70 @@
+{
+  "tool": "Built-in image_gen",
+  "template": "Use case: stylized-concept. Generate ONE standalone wide horizontal 16:9 cinematic atmospheric illustration for a premium galaxy projector website carousel. Subject: SUBJECT. Unified art direction: deep midnight indigo, luminous violet and restrained cyan highlights, finely detailed soft volumetric light, sophisticated realistic digital painting. Composition: central main subject readable in a mobile center crop, interesting detail across the wide frame, quieter dark lower fifth for HTML title overlay. Beautiful full-bleed artwork only, no room, projector, typography, labels, borders, arrows, collage, UI, watermark. Artistic atmosphere illustration, not a scientific diagram.",
+  "scenes": [
+    {
+      "slug": "moon",
+      "subject": "A cratered silver full moon hanging in a deep indigo star field, delicate violet rim light."
+    },
+    {
+      "slug": "solar-system",
+      "subject": "An artistic panoramic solar system, glowing sun and varied planets in a graceful depth composition, no diagram or labels."
+    },
+    {
+      "slug": "galaxy",
+      "subject": "A luminous spiral galaxy viewed obliquely, flowing violet arms and cyan star clusters against black space."
+    },
+    {
+      "slug": "small-magellanic-cloud",
+      "subject": "An irregular dwarf galaxy, hazy blue-violet clouds and scattered young star clusters, not a spiral."
+    },
+    {
+      "slug": "orion-nebula",
+      "subject": "Orion Nebula inspired luminous violet and cyan gas clouds, bright central stellar nursery and sculpted dark dust."
+    },
+    {
+      "slug": "helix-nebula",
+      "subject": "Helix Nebula inspired enormous teal and violet glowing eye-shaped ring surrounding a dark central star field."
+    },
+    {
+      "slug": "crab-nebula",
+      "subject": "Crab Nebula inspired intricate filamentary supernova remnant, electric blue core and subtle magenta tendrils."
+    },
+    {
+      "slug": "horsehead-nebula",
+      "subject": "Horsehead Nebula inspired dark horse-head dust silhouette against luminous magenta and violet gas."
+    },
+    {
+      "slug": "saturn",
+      "subject": "Saturn with magnificent tilted rings, softly lit lavender-gold atmosphere suspended in a vast indigo star field."
+    },
+    {
+      "slug": "auroral-sky",
+      "subject": "Sweeping teal and violet aurora curtains over a quiet silhouetted mountain landscape under a star-filled sky."
+    },
+    {
+      "slug": "rocket-launch",
+      "subject": "A slender rocket ascending from a dark coastal launch site at blue hour, luminous exhaust plume and violet clouds."
+    },
+    {
+      "slug": "interstellar-exploration",
+      "subject": "A small elegant exploration spacecraft traveling toward a distant blue planet and vast violet nebula, cinematic scale."
+    },
+    {
+      "slug": "blue-moon",
+      "subject": "A large blue-tinted moon rising above calm dark water, cobalt reflections and a delicate violet night sky."
+    },
+    {
+      "slug": "earth",
+      "subject": "Earth seen from orbit, blue oceans and detailed white cloud systems, glowing cyan atmospheric rim on the night edge."
+    },
+    {
+      "slug": "dinosaur-ruled-earth",
+      "subject": "Majestic long-necked dinosaurs in a misty prehistoric fern valley at twilight, violet-blue atmosphere and mountains."
+    },
+    {
+      "slug": "moonlit-dinosaur",
+      "subject": "A solitary long-necked dinosaur silhouetted on a ridge beneath an enormous silver moon, indigo sky and cool mist."
+    }
+  ]
+}

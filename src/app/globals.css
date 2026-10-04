@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #090a12;
+  --color-foreground: #f6f4ff;
+  --color-muted: #c9c5d6;
+  --color-highlight: #c6b3f0;
+  --color-line: #ffffff19;
+  --font-sans: var(--font-montserrat), Arial, sans-serif;
+  --font-serif: var(--font-merriweather), Georgia, serif;
+}
+
+@theme {
+  --animate-panel-enter: panel-enter 240ms ease both;
+
+  @keyframes panel-enter {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@layer base {
+  html { @apply scroll-smooth scroll-pt-24; }
+  body { @apply m-0 bg-background font-serif text-base text-foreground antialiased; }
+  p { @apply leading-normal tracking-normal; }
+  button, a, summary { -webkit-tap-highlight-color: transparent; }
+  button { @apply cursor-pointer font-serif text-[calc(1rem+1px)] font-medium text-inherit; }
+  button:disabled { @apply cursor-not-allowed opacity-35; }
+  button:focus-visible, a:focus-visible, summary:focus-visible {
+    @apply outline-2 outline-[#c6acff] outline-offset-6;
+  }
+  button, a { transition: background 0.2s, color 0.2s; }
+  ::selection { @apply bg-[#7654ac] text-white; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { @apply scroll-auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+}
